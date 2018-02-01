@@ -14,7 +14,12 @@
 	</properties>
 
   <dependencies>
-		<dependency>
+    	<dependency>	
+  <groupId>com</groupId>
+  <artifactId>onlinebackend</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  </dependency>
+  	<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
 			<version>${javaee.version}</version>
@@ -33,13 +38,7 @@
 		</dependency>
 	
 
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+     </dependencies>
   <build>
     <finalName>onlinefrontend</finalName>
   	<!-- Updated for the latest version of JAVA -->

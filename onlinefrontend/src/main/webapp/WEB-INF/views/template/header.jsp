@@ -11,11 +11,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 <link href="${css}/style.css" rel="stylesheet">
 
-<title>Insert title here</title>
+<title>${title}</title>
 </head>
 <body>
 <c:set var="contextRoot" value="${ pageContext.request.contextPath}"></c:set>
@@ -53,7 +54,7 @@
         <div class="row row2">
             <div class="col-sm-2">
                 <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()"> Brand</span></h2>
-                <h1 style="margin:0px;"><span class="largenav">Brand</span></h1>
+                <h1 style="margin:0px;"><span class="largenav">DesiCart</span></h1>
             </div>
             <div class="flipkart-navbar-search smallsearch col-sm-8 col-xs-11">
                 <div class="row">
@@ -86,3 +87,4 @@
     <a href="http://clashhacks.in/">Link</a>
     <a href="http://clashhacks.in/">Link</a>
 </div>
+		<%@include file="navbar.jsp"%>

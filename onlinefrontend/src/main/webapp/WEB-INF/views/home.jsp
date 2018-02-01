@@ -1,16 +1,7 @@
 <%@include file="template/header.jsp" %>
-
-<div class="container">
-
-	<div class="row">	
-		
-		<h1>About Us</h1>
-		<hr/>
-		<p>This is an about us page</p>	
-	<p>${title}</p>
-	<p>${contextRoot}</p>
+	<div class="row">
+	<div class="col-md-3">
+			<%@include file="template/sidebar.jsp"%>
+	</div>	
 	</div>
-
-
-</div>
 <%@include file="template/footer.jsp" %>

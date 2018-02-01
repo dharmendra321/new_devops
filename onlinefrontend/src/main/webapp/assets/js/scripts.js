@@ -8,3 +8,13 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
     document.body.style.backgroundColor = "rgba(0,0,0,0)";
 }
+$(document).ready(function() {
+	$(".btn-pref .btn").click(function () {
+	    $(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
+	    $(this).removeClass("btn-default").addClass("btn-primary");   
+	});
+	//$("#supplier").removeClass("btn-default").addClass("btn-primary");
+	//$("#supplier").tab("show");
+	
+});
+
