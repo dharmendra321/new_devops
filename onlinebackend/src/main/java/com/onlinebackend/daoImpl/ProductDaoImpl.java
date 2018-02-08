@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.onlinebackend.dao.ProductDao;
 import com.onlinebackend.model.Product;
+import com.onlinebackend.model.Supplier;
 @Repository("productDao")
 @Transactional
 public class ProductDaoImpl implements ProductDao {
@@ -28,12 +29,12 @@ public class ProductDaoImpl implements ProductDao {
 		return null;
 		
 	}
-
+	
 	public List<Product> getAllProduct() {
 		// TODO Auto-generated method stub
 		try
 		{
-			sessionFactory.getCurrentSession().createQuery("from Product",Product.class).getResultList();
+			return sessionFactory.getCurrentSession().createQuery("from Product",Product.class).getResultList();
 		}
 		catch(Exception ex)
 		{

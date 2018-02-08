@@ -47,6 +47,7 @@ public class CategoryDaoImpl implements CategoryDao {
 		{
 
 			sessionFactory.getCurrentSession().persist(category);
+			sessionFactory.getCurrentSession().flush();			
 			return true;
 		}
 		catch(Exception e)

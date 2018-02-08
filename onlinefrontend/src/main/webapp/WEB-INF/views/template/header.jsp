@@ -10,6 +10,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script>
+	window.type = '${tp}';
+	console.log('${msg}');
+	console.log('${tp}');
+</script>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
