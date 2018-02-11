@@ -14,7 +14,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li id="supplier">
-                        <a href="${contextRoot}/admin">Admin</a>
+                        <a href="${contextRoot}/admin/view">Admin</a>
                     </li>
                 
                     <li id="about">

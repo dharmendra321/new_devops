@@ -14,8 +14,8 @@ $(document).ready(function() {
 	    $(this).removeClass("btn-default").addClass("btn-primary");   
 	});
 	
-		console.log("tp2.."+type);
-	
+		console.log("message.."+type);
+			
 	
 });
 

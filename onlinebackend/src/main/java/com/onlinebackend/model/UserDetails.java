@@ -2,6 +2,7 @@ package com.onlinebackend.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -18,6 +19,8 @@ private String userName;
 private String password;
 private String mobile;
 private String userRole;
+private boolean isActive;
+
 public String getEmail() {
 	return email;
 }
@@ -54,5 +57,4 @@ public boolean isActive() {
 public void setActive(boolean isActive) {
 	this.isActive = isActive;
 }
-private boolean isActive;
 }

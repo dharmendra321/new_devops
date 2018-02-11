@@ -28,18 +28,18 @@
 
 		<div class="btn-group" role="group">
 			<c:choose>
-				<c:when test="${tp=='productList'}">			
-			<button type="button" id="product" class="btn btn-primary"
-				href="#prodlist" data-toggle="tab">
+				<c:when test="${tp=='productList'}">
+					<button type="button" id="product" class="btn btn-primary"
+						href="#prodlist" data-toggle="tab">
 				</c:when>
-		  <c:otherwise>
-			<button type="button" id="product" class="btn btn-default"
-				href="#prodlist" data-toggle="tab">
+				<c:otherwise>
+					<button type="button" id="product" class="btn btn-default"
+						href="#prodlist" data-toggle="tab">
 				</c:otherwise>
 			</c:choose>
-			
-				<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-				<div class="hidden-xs">Product List</div>
+
+			<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+			<div class="hidden-xs">Product List</div>
 			</button>
 		</div>
 
@@ -168,185 +168,66 @@
 
 		</div>
 		<c:choose>
-		<c:when test="${tp=='productList'}">			
-		<div class="tab-pane fade in active" id="prodlist">
-		</c:when>
-		<c:otherwise>
-		<div class="tab-pane fade in" id="prodlist">
-		
-		</c:otherwise>
-		</c:choose>
-			<div class="row">
-				<div class="widget stacked widget-table action-table">
-					<div class="widget-header">
-						<i class="icon-th-list"></i>
-						<h3>Product List</h3>
-					</div>
-					<!-- /widget-header -->
-					<div class="widget-content">
-						<table class="table table-striped table-bordered">
-							<thead>
-								<tr>
-									<th>Image</th>
-									<th>Product ID</th>
-									<th>Product Name</th>
-									<th>Product Brand</th>
-									<th>Description</th>
-									<th>Quantity</th>
-									<th>Price</th>
-									<th>Suppplier</th>
-									<th>Category</th>
-									<th>Active</th>	
-									<th class="td-actions">Modify</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach items="${products}" var="prod">
-									<tr>
-										<c:choose>
-											<c:when test="${cmd=='edit' && id==prod.pid}">
-												<td>${prod.pid }</td>
-												<td colspan="2"><sf:form modelAttribute="product"
-														action="${contextRoot}/admin/product/update"
-														autocomplete="off" method="POST">
-														<sf:hidden path="pid" value="${prod.pid}" />
-														<div class="input-group">
-															<span class="input-group-addon"><i
-																class="icon-user"></i></span>
-															<sf:input type="text" class="form-control"
-																path="productName" placeholder="Enter Product Name"
-																required="required" value="${prod.productName}" />
-															<span class="input-group-btn"><button
-																	type="submit" class="form-control">Update</button></span>
-															<sf:errors path="productName" cssStyle="color:red;" />
-														</div>
-													</sf:form></td>
-
-											</c:when>
-											<c:otherwise>
-												 <td><img src="<c:url value="/resources/images/product/${prod.pid}.jpg" />" alt="image" style="width:50%"/></td>
-                  							<td>${prod.pid}</td>
-												<td>${prod.productName }</td>
-												<td>${prod.brand}</td>
-												<td>${prod.description}</td>
-												<td>${prod.qty}</td>
-												<td>${prod.unitprice}</td>
-												<td>${prod.sid}</td>
-												<td>${prod.cid}</td>
-												<td>${prod.isactive}</td>
-												
-												<td class="td-actions"><a
-													href="${contextRoot}/admin/product/${prod.pid}/edit"
-													class="btn btn-small btn-primary"> <i
-														class="btn-icon-only icon-ok"></i>
-												</a> <a href="${contextRoot}/admin/product/${prod.pid}/remove"
-													class="btn btn-small"> <i
-														class="btn-icon-only icon-remove"></i>
-												</a></td>
-
-											</c:otherwise>
-										</c:choose> 
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-					</div>
-					<!-- /widget-content -->
-
-				</div>
-				<!-- /widget -->
-			</div>
-
-		</div>
-
-
-
-		<c:choose>
-			<c:when test="${tp=='supplier'}">
-				<div class="tab-pane fade in active" id="supp">
+			<c:when test="${tp=='productList'}">
+				<div class="tab-pane fade in active" id="prodlist">
 			</c:when>
 			<c:otherwise>
-				<div class="tab-pane fade in" id="supp">
+				<div class="tab-pane fade in" id="prodlist">
 			</c:otherwise>
 		</c:choose>
-
-		<div class="row">
-			<div id="input">
-				<sf:form modelAttribute="supplier"
-					action="${contextRoot}/admin/supplier" autocomplete="off"
-					method="POST">
-					<div class="input-group">
-						<span class="input-group-addon"><i class="icon-user"></i></span>
-						<sf:input type="text" class="form-control" path="supplierName"
-							placeholder="Enter Supplier Name" required="required" />
-						<span class="input-group-btn"><button type="submit"
-								class="form-control">Add</button></span>
-						<sf:errors path="supplierName" cssStyle="color:red;" />
-					</div>
-				</sf:form>
-			</div>
-
-		</div>
 		<div class="row">
 			<div class="widget stacked widget-table action-table">
 				<div class="widget-header">
 					<i class="icon-th-list"></i>
-					<h3>Supplier List</h3>
+					<h3>Product List</h3>
 				</div>
 				<!-- /widget-header -->
 				<div class="widget-content">
 					<table class="table table-striped table-bordered">
 						<thead>
 							<tr>
-								<th>Supplier ID</th>
-								<th>Supplier Name</th>
+								<th>Image</th>
+								<th>Product ID</th>
+								<th>Product Name</th>
+								<th>Product Brand</th>
+								<th>Description</th>
+								<th>Quantity</th>
+								<th>Price</th>
+								<th>Suppplier</th>
+								<th>Category</th>
+								<th>Active</th>
 								<th class="td-actions">Modify</th>
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach items="${suppliers}" var="supp">
+							<c:forEach items="${products}" var="prod">
 								<tr>
-									<c:choose>
-										<c:when test="${cmd=='edit' && id==supp.sid}">
-											<td>${supp.sid }</td>
-											<td colspan="2"><sf:form modelAttribute="supplier"
-													action="${contextRoot}/admin/supplier/update"
-													autocomplete="off" method="POST">
-													<sf:hidden path="sid" value="${supp.sid}" />
-													<div class="input-group">
-														<span class="input-group-addon"><i
-															class="icon-user"></i></span>
-														<sf:input type="text" class="form-control"
-															path="supplierName" placeholder="Enter Supplier Name"
-															required="required" value="${supp.supplierName}" />
-														<span class="input-group-btn"><button type="submit"
-																class="form-control">Update</button></span>
-														<sf:errors path="supplierName" cssStyle="color:red;" />
-													</div>
-												</sf:form></td>
+											<td><img
+												src="<c:url value="/resources/images/product/${prod.pid}.jpg" />"
+												alt="image" style="width: 50%" /></td>
+											<td>${prod.pid}</td>
+											<td>${prod.productName }</td>
+											<td>${prod.brand}</td>
+											<td>${prod.description}</td>
+											<td>${prod.qty}</td>
+											<td>${prod.unitprice}</td>
+											<td>${prod.sid}</td>
+											<td>${prod.cid}</td>
+											<td>${prod.isactive}</td>
 
-										</c:when>
-										<c:otherwise>
-
-											<td>${supp.sid }</td>
-											<td>${supp.supplierName }</td>
 											<td class="td-actions"><a
-												href="${contextRoot}/admin/supplier/${supp.sid}/edit"
+												href="${contextRoot}/admin/product/${prod.pid}/edit"
 												class="btn btn-small btn-primary"> <i
 													class="btn-icon-only icon-ok"></i>
-											</a> <a href="${contextRoot}/admin/supplier/${supp.sid}/remove"
+											</a> 
+											<a href="${contextRoot}/admin/product/${prod.pid}/remove"
 												class="btn btn-small"> <i
 													class="btn-icon-only icon-remove"></i>
 											</a></td>
-
-										</c:otherwise>
-									</c:choose>
 								</tr>
-
 							</c:forEach>
 						</tbody>
 					</table>
-
 				</div>
 				<!-- /widget-content -->
 
@@ -356,107 +237,197 @@
 
 	</div>
 
+
+
 	<c:choose>
-		<c:when test="${tp=='category'}">
-			<div class="tab-pane fade in active" id="cate">
+		<c:when test="${tp=='supplier'}">
+			<div class="tab-pane fade in active" id="supp">
 		</c:when>
 		<c:otherwise>
-			<div class="tab-pane fade in" id="cate">
+			<div class="tab-pane fade in" id="supp">
 		</c:otherwise>
 	</c:choose>
 
-	<div class="tab-pane fade in" id="cate">
-		<div class="row">
-			<div id="input">
-				<sf:form modelAttribute="category"
-					action="${contextRoot}/admin/category" autocomplete="off"
-					method="POST">
-					<div class="input-group">
-						<span class="input-group-addon"><i class="icon-user"></i></span>
-						<sf:input type="text" class="form-control" path="categoryName"
-							placeholder="Enter Category Name" required="required" />
-						<span class="input-group-btn"><button type="submit"
-								class="form-control">Add</button></span>
-						<sf:errors path="categoryName" cssStyle="color:red;" />
-					</div>
-				</sf:form>
-			</div>
-
-		</div>
-		<div class="row">
-			<div class="widget stacked widget-table action-table">
-				<div class="widget-header">
-					<i class="icon-th-list"></i>
-					<h3>Supplier List</h3>
+	<div class="row">
+		<div id="input">
+			<sf:form modelAttribute="supplier"
+				action="${contextRoot}/admin/supplier" autocomplete="off"
+				method="POST">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="icon-user"></i></span>
+					<sf:input type="text" class="form-control" path="supplierName"
+						placeholder="Enter Supplier Name" required="required" />
+					<span class="input-group-btn"><button type="submit"
+							class="form-control">Add</button></span>
+					<sf:errors path="supplierName" cssStyle="color:red;" />
 				</div>
-				<!-- /widget-header -->
-				<div class="widget-content">
-					<table class="table table-striped table-bordered">
-						<thead>
-							<tr>
-								<th>Category ID</th>
-								<th>Category Name</th>
-								<th class="td-actions">Modify</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach items="${categories}" var="cate">
-								<tr>
-									<c:choose>
-										<c:when test="${cmd=='edit' && id==cate.cid}">
-											<td>${cate.cid }</td>
-											<td colspan="2"><sf:form modelAttribute="category"
-													action="${contextRoot}/admin/category/update"
-													autocomplete="off" method="POST">
-													<sf:hidden path="cid" value="${cate.cid}" />
-													<div class="input-group">
-														<span class="input-group-addon"><i
-															class="icon-user"></i></span>
-														<sf:input type="text" class="form-control"
-															path="categoryName" placeholder="Enter Category Name"
-															required="required" value="${cate.categoryName}" />
-														<span class="input-group-btn"><button type="submit"
-																class="form-control">Update</button></span>
-														<sf:errors path="categoryName" cssStyle="color:red;" />
-													</div>
-												</sf:form></td>
-
-										</c:when>
-										<c:otherwise>
-
-											<td>${cate.cid }</td>
-											<td>${cate.categoryName }</td>
-											<td class="td-actions"><a
-												href="${contextRoot}/admin/category/${cate.cid}/edit"
-												class="btn btn-small btn-primary"> <i
-													class="btn-icon-only icon-ok"></i>
-											</a> <a href="${contextRoot}/admin/category/${cate.cid}/remove"
-												class="btn btn-small"> <i
-													class="btn-icon-only icon-remove"></i>
-											</a></td>
-
-										</c:otherwise>
-									</c:choose>
-								</tr>
-
-							</c:forEach>
-						</tbody>
-					</table>
-
-				</div>
-				<!-- /widget-content -->
-
-			</div>
-			<!-- /widget -->
+			</sf:form>
 		</div>
 
 	</div>
+	<div class="row">
+		<div class="widget stacked widget-table action-table">
+			<div class="widget-header">
+				<i class="icon-th-list"></i>
+				<h3>Supplier List</h3>
+			</div>
+			<!-- /widget-header -->
+			<div class="widget-content">
+				<table class="table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th>Supplier ID</th>
+							<th>Supplier Name</th>
+							<th class="td-actions">Modify</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${suppliers}" var="supp">
+							<tr>
+								<c:choose>
+									<c:when test="${cmd=='edit' && id==supp.sid}">
+										<td>${supp.sid }</td>
+										<td colspan="2"><sf:form modelAttribute="supplier"
+												action="${contextRoot}/admin/supplier/update"
+												autocomplete="off" method="POST">
+												<sf:hidden path="sid" value="${supp.sid}" />
+												<div class="input-group">
+													<span class="input-group-addon"><i class="icon-user"></i></span>
+													<sf:input type="text" class="form-control"
+														path="supplierName" placeholder="Enter Supplier Name"
+														required="required" value="${supp.supplierName}" />
+													<span class="input-group-btn"><button type="submit"
+															class="form-control">Update</button></span>
+													<sf:errors path="supplierName" cssStyle="color:red;" />
+												</div>
+											</sf:form></td>
+
+									</c:when>
+									<c:otherwise>
+
+										<td>${supp.sid }</td>
+										<td>${supp.supplierName }</td>
+										<td class="td-actions"><a
+											href="${contextRoot}/admin/supplier/${supp.sid}/edit"
+											class="btn btn-small btn-primary"> <i
+												class="btn-icon-only icon-ok"></i>
+										</a> <a href="${contextRoot}/admin/supplier/${supp.sid}/remove"
+											class="btn btn-small"> <i
+												class="btn-icon-only icon-remove"></i>
+										</a></td>
+
+									</c:otherwise>
+								</c:choose>
+							</tr>
+
+						</c:forEach>
+					</tbody>
+				</table>
+
+			</div>
+			<!-- /widget-content -->
+
+		</div>
+		<!-- /widget -->
+	</div>
 
 </div>
-</div>
-</div>
+
+<c:choose>
+	<c:when test="${tp=='category'}">
+		<div class="tab-pane fade in active" id="cate">
+	</c:when>
+	<c:otherwise>
+		<div class="tab-pane fade in" id="cate">
+	</c:otherwise>
+</c:choose>
+
+<div class="tab-pane fade in" id="cate">
+	<div class="row">
+		<div id="input">
+			<sf:form modelAttribute="category"
+				action="${contextRoot}/admin/category" autocomplete="off"
+				method="POST">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="icon-user"></i></span>
+					<sf:input type="text" class="form-control" path="categoryName"
+						placeholder="Enter Category Name" required="required" />
+					<span class="input-group-btn"><button type="submit"
+							class="form-control">Add</button></span>
+					<sf:errors path="categoryName" cssStyle="color:red;" />
+				</div>
+			</sf:form>
+		</div>
+
+	</div>
+	<div class="row">
+		<div class="widget stacked widget-table action-table">
+			<div class="widget-header">
+				<i class="icon-th-list"></i>
+				<h3>Supplier List</h3>
+			</div>
+			<!-- /widget-header -->
+			<div class="widget-content">
+				<table class="table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th>Category ID</th>
+							<th>Category Name</th>
+							<th class="td-actions">Modify</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${categories}" var="cate">
+							<tr>
+								<c:choose>
+									<c:when test="${cmd=='edit' && id==cate.cid}">
+										<td>${cate.cid }</td>
+										<td colspan="2"><sf:form modelAttribute="category"
+												action="${contextRoot}/admin/category/update"
+												autocomplete="off" method="POST">
+												<sf:hidden path="cid" value="${cate.cid}" />
+												<div class="input-group">
+													<span class="input-group-addon"><i class="icon-user"></i></span>
+													<sf:input type="text" class="form-control"
+														path="categoryName" placeholder="Enter Category Name"
+														required="required" value="${cate.categoryName}" />
+													<span class="input-group-btn"><button type="submit"
+															class="form-control">Update</button></span>
+													<sf:errors path="categoryName" cssStyle="color:red;" />
+												</div>
+											</sf:form></td>
+
+									</c:when>
+									<c:otherwise>
+
+										<td>${cate.cid }</td>
+										<td>${cate.categoryName }</td>
+										<td class="td-actions"><a
+											href="${contextRoot}/admin/category/${cate.cid}/edit"
+											class="btn btn-small btn-primary"> <i
+												class="btn-icon-only icon-ok"></i>
+										</a> <a href="${contextRoot}/admin/category/${cate.cid}/remove"
+											class="btn btn-small"> <i
+												class="btn-icon-only icon-remove"></i>
+										</a></td>
+
+									</c:otherwise>
+								</c:choose>
+							</tr>
+
+						</c:forEach>
+					</tbody>
+				</table>
+
+			</div>
+			<!-- /widget-content -->
+
+		</div>
+		<!-- /widget -->
+	</div>
 
 </div>
+
 
 
 

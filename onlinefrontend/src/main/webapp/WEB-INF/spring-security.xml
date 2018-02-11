@@ -10,11 +10,13 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/context/spring-context.xsd">
 		
 			<context:component-scan base-package="com.onlinebackend"/> 
-		
+<http pattern="/resources/**" security="none"/>		
 <http>
-<intercept-url pattern="/**" access="hasAuthority('USER')" />
-<form-login />
-<logout />
+<intercept-url pattern="/admin/**" access="hasAuthority('Admin')" />	
+<intercept-url pattern="/**" access="permitAll" />
+
+<form-login login-page="/login" />
+<logout/>
 </http>
 <authentication-manager>
 <authentication-provider>

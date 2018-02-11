@@ -12,8 +12,8 @@
 <head>
 <script>
 	window.type = '${tp}';
-	console.log('${msg}');
-	console.log('${tp}');
+	//console.log('${message}');
+	//console.log('${tp}');
 </script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -31,7 +31,7 @@
     <div class="container">
         <div class="row row1">
             <ul class="largenav pull-right">
-                <li class="upper-links"><a class="links" href="#">Login & SignUp</a></li>
+                <li class="upper-links"><a class="links" href="${contextRoot}/login">Login & SignUp</a></li>
                 <!-- <li class="upper-links"><a class="links" href="https://campusbox.org/">Link 2</a></li>
                 <li class="upper-links"><a class="links" href="http://clashhacks.in/">Link 3</a></li>
                 <li class="upper-links"><a class="links" href="http://clashhacks.in/">Link 4</a></li>
