@@ -34,7 +34,8 @@ public class ProductDaoImpl implements ProductDao {
 		// TODO Auto-generated method stub
 		try
 		{
-			return sessionFactory.getCurrentSession().createQuery("from Product",Product.class).getResultList();
+			return sessionFactory.getCurrentSession().createQuery("from Product WHERE isActive = :active",Product.class).
+					setParameter("active", true).getResultList();
 		}
 		catch(Exception ex)
 		{
@@ -83,6 +84,21 @@ public class ProductDaoImpl implements ProductDao {
 		}
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	public List<Product> getProductCategoryWise(int cid) {
+		// TODO Auto-generated method stub
+		try
+		{
+			String query="from Product WHERE isActive = :active AND cid = :categoryId";
+			return sessionFactory.getCurrentSession().createQuery(query,Product.class).
+					setParameter("active", true).setParameter("categoryId", cid).getResultList();
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		return null;
 	}
 
 }
