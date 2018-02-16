@@ -74,20 +74,33 @@ public class IndexController {
 		 mv.addObject("title", "Register YourSelf");
          return mv;
 	}
-	@RequestMapping("/category/{cid}")
+	@RequestMapping("/product/{cid}")
 	public ModelAndView categoryList(@PathVariable int cid) 
 	{
-		ModelAndView mv=new ModelAndView("home");
-	//	mv.addObject("id", cid);
-		mv.addObject("products",productDao.getProductCategoryWise(cid));
+		ModelAndView mv=new ModelAndView("productlist");
+		mv.addObject("category",cid);
 		return mv;
 	}
-	@ModelAttribute("products") 
-	public List<Product> modelProducts() {
-		return productDao.getAllProduct();
+	@RequestMapping("/product/all")
+	public ModelAndView productList() 
+	{
+		ModelAndView mv=new ModelAndView("productlist");
+		mv.addObject("category",0);
+		return mv;
 	}
-	@ModelAttribute("category") 
-	public List<Category> modelCategory() {
+	@RequestMapping("/product/show/{pid}")
+	public ModelAndView productView(@PathVariable int pid) 
+	{
+		ModelAndView mv=new ModelAndView("singleproduct");
+		mv.addObject("title","Product View");
+		Product product=productDao.getProductById(pid);
+		product.setUserView(product.getUserView()+1);
+		productDao.updateProduct(product);
+		mv.addObject("product",product);
+		return mv;
+	}
+	@ModelAttribute("categories") 
+	public List<Category> modelCategories() {
 		return categoryDao.getAllCategory();
 	}
 }

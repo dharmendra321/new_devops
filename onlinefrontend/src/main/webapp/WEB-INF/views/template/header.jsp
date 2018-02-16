@@ -6,27 +6,28 @@
 <spring:url var="js" value="/resources/js"/>
 <spring:url var="fonts" value="/resources/fonts"/>
 <spring:url var="images" value="/resources/images"/>
-
+<c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <script>
 	window.type = '${tp}';
-	//console.log('${message}');
-	//console.log('${tp}');
+	window.contextroot='${contextRoot}';
+	console.log('${contextRoot}');
+	console.log('${category}');
 </script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
+<link href="${css}/dataTables.bootstrap.min.css" rel="stylesheet">
 <link href="${css}/style.css" rel="stylesheet">
 
 <title>${title}</title>
 </head>
 <body>
 <c:set var="contextRoot" value="${ pageContext.request.contextPath}"></c:set>
-
 <div id="flipkart-navbar">
     <div class="container">
         <div class="row row1">
@@ -82,15 +83,5 @@
             </div>
         </div>
     </div>
-</div>
-<div id="mySidenav" class="sidenav">
-    <div class="container" style="background-color: #2874f0; padding-top: 10px;">
-        <span class="sidenav-heading">Home</span>
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-    </div>
-    <a href="http://clashhacks.in/">Link</a>
-    <a href="http://clashhacks.in/">Link</a>
-    <a href="http://clashhacks.in/">Link</a>
-    <a href="http://clashhacks.in/">Link</a>
 </div>
 		<%@include file="navbar.jsp"%>
